@@ -54,7 +54,6 @@ for line in sys.stdin:
         para += line
 
 if para != None:
-    print('add')
     doc.add_paragraph(para)
         
 doc.save('output.docx')

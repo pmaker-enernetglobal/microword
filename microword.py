@@ -29,7 +29,6 @@ for line in sys.stdin:
     elif line[0] == '|':
         cn = line.count('|') - 1
         if table == None:
-            print('creating table')
             table = doc.add_table(rows=1, cols=cn, style='Light Grid')
             table.autofit = True
             columns = cn
@@ -44,7 +43,6 @@ for line in sys.stdin:
     elif line == '\n':
         table = None
         if para != None:
-            print('add', para)
             doc.add_paragraph(para)
             para = None
         else:

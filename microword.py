@@ -11,6 +11,7 @@ to output.docx
 # TODO: a air bit of tidying up
 
 from docx import Document
+from docx.enum.table import WD_TABLE_ALIGNMENT
 import sys
 
 doc = Document()
@@ -30,7 +31,8 @@ for line in sys.stdin:
         cn = line.count('|') - 1
         if table == None:
             table = doc.add_table(rows=1, cols=cn, style='Light Grid')
-            table.autofit = True
+            # table.alignment = WD_TABLE_ALIGNMENT.LEFT
+            table.allow_auto_fit = False
             columns = cn
             row = 0
         else:
